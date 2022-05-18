@@ -1,11 +1,21 @@
-const initialMemoryUsage = process.memoryUsage().heapUsed;
-const yourName = process.argv[2];
-const environment = process.env.NODE_ENV;
+const Tiger = require('./Tiger'); 
+const Wolf = require('./Wolf');
 
-for(let i = 0; i <= 10000; i++){
-    // 
+const fighting = (tiger, wolf) => {
+    if(tiger.strength > wolf.strength){
+        tiger.growl();
+        return;
+    }
+
+    if(wolf.strength > tiger.strength){
+        wolf.howl();
+        return
+    }
+
+    console.log('Tiger and Wolf have the same strength');
 }
 
-const currentMemoryUsage = initialMemoryUsage
+const tiger = new Tiger();
+const wolf = new Wolf();
 
-console.log(`${yourName} is using ${currentMemoryUsage} bytes of memory in ${environment}`);
+fighting(tiger, wolf);
