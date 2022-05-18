@@ -1,11 +1,4 @@
-const {EventEmitter} = require('events');
+const fs = require('fs');
 
-const birthdayEvenListener = (name) => {
-    console.log(`Happy Birthday ${name}!`);
-}
-
-const myEmitter = new EventEmitter();
-
-myEmitter.on('birthday', birthdayEvenListener);
-
-myEmitter.emit('birthday', 'John');
+const data = fs.readFileSync('notes.txt', 'utf8');
+console.log(data);
