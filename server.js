@@ -11,15 +11,16 @@ const requestListener = (request, response) => {
     }
 
     if (method === 'POST') {
-        response.end('<h1>Hai</h1>');
-    }
+        let body = [];
 
-    if (method === 'PUT') {
-        response.end('<h1>Bonjour</h1>');
-    }
+        request.on('data', (chunk) => {
+            body.push(chunk);
+        });
 
-    if (method === 'DELETE') {
-        response.end('<h1>Adios</h1>');
+        request.on('end', () => {
+            body = Buffer.concat(body).toString();
+            response.end(`<h1>Hello ${body}</h1>`);
+        })
     }
 }
 
