@@ -1,4 +1,17 @@
 const fs = require('fs');
 
-const data = fs.readFileSync('notes.txt', 'utf8');
-console.log(data);
+const readableStream = fs.createReadStream('./notes.txt', {
+    highWaterMark: 10
+});
+
+readableStream.on('readable', () => {
+    try {
+        process.stdout.write(`[${readableStream.read()}]`);
+    } catch (error) {
+        console.log(error);
+    }
+})
+
+readableStream.on('end', () => {
+    console.log('Done');
+})

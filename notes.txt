@@ -1,5 +1,3 @@
-    Di hari minggu saya akan:
-    1. Berolahraga pagi.
-    2. Membersihkan halaman rumah.
-    3. Menonton film.
-    4. Membaca buku Laskar Pelangi.
+    Stream di Node.js
+     
+    Teknik stream merupakan salah satu konsep fundamental yang mendukung aplikasi Node.js bekerja. Teknik ini dapat menangani kasus baca tulis berkas, komunikasi jaringan, atau beban kerja apapun agar dapat berjalan dengan lebih efisien.
